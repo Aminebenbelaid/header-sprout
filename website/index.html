@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Header Sprout privacy policy: how your header rules, profiles, and settings are stored and used.">
+  <meta name="theme-color" content="#625b7c">
+  <title>Privacy policy · Header Sprout</title>
+  <style>
+    :root { color-scheme: light; --ink: #494158; --purple: #625b7c; --teal: #157b7d; --paper: #faf9fc; --line: #e5e0ec; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.75 "Avenir Next", Avenir, "Segoe UI", sans-serif; }
+    .wrap { max-width: 900px; margin: auto; padding: 0 30px; }
+    header { border-bottom: 1px solid var(--line); background: #fff; }
+    header .wrap { display: flex; align-items: center; gap: 13px; padding-top: 22px; padding-bottom: 22px; }
+    .sprout { width: 48px; height: 53px; flex: none; }
+    .brand { font-size: 24px; font-weight: 800; letter-spacing: -.9px; line-height: 1.3; color: var(--purple); }
+    .tagline { font-size: 12px; color: #756d80; }
+    main { padding-top: 55px !important; padding-bottom: 55px !important; }
+    h1 { margin: 0 0 10px; font-size: clamp(36px, 7vw, 54px); line-height: 1.12; letter-spacing: -1.7px; color: var(--purple); }
+    .updated { margin: 0 0 30px; color: #756d80; font-size: 13px; }
+    .intro { border-left: 4px solid #1cbbbe; padding: 18px 24px; background: #e1f4f2; border-radius: 0 15px 15px 0; margin-bottom: 35px; }
+    .intro p { margin: 0; }
+    h2 { font-size: 21px; line-height: 1.35; margin: 31px 0 10px; letter-spacing: -.35px; color: var(--purple); }
+    p { margin: 0 0 15px; }
+    ul { margin: 0 0 18px; padding-left: 23px; }
+    li { margin-bottom: 6px; }
+    code { font-size: .92em; color: var(--teal); }
+    footer { border-top: 1px solid var(--line); color: #756d80; font-size: 12px; padding: 23px 0 30px; }
+    @media (max-width: 540px) { .wrap { padding-left: 22px; padding-right: 22px; } main { padding-top: 36px !important; } .intro { padding: 15px 18px; } }
+    @media print { body { background: white; font-size: 11pt; } main { padding-top: 20px !important; } h2 { break-after: avoid; } .intro { background: none; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <svg class="sprout" aria-hidden="true" viewBox="0 0 80 88" xmlns="http://www.w3.org/2000/svg">
+      <path d="M41 26C18 30 12 9 17 6c18-1 26 6 24 20Z" fill="#1cbbbe"/>
+      <path d="M40 28C37 12 51 6 64 9c2 14-9 23-24 19Z" fill="#625b7c"/>
+      <path d="M40 19v23" stroke="#625b7c" stroke-width="4" stroke-linecap="round"/>
+      <rect x="12" y="34" width="58" height="45" rx="20" fill="#d7f3f1" stroke="#625b7c" stroke-width="3"/>
+      <g fill="#625b7c"><circle cx="30" cy="53" r="3"/><circle cx="51" cy="53" r="3"/></g>
+      <path d="M35 61q6 7 12 0" fill="none" stroke="#625b7c" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#f3b9cc"><ellipse cx="23" cy="61" rx="5" ry="3"/><ellipse cx="57" cy="61" rx="5" ry="3"/></g>
+    </svg>
+    <div><div class="brand">header sprout</div><div class="tagline">A little help for your headers.</div></div>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Privacy policy</h1>
+  <p class="updated">Last updated: November 11, 2026 · Header Sprout extension</p>
+  <div class="intro"><p><strong>Your rules stay on your device.</strong> Header Sprout has no accounts, advertising, analytics, or publisher-operated cloud backend. The extension does not send your settings or browsing history to its publisher.</p></div>
+
+  <section aria-labelledby="stored">
+    <h2 id="stored">What the extension stores</h2>
+    <p>Header Sprout stores the configuration you enter in your browser’s local extension storage:</p>
+    <ul><li>Header names and values, including any tokens or credentials you choose to enter.</li><li>URL patterns that determine where rules apply.</li><li>Profiles, enabled rules, and the pause setting.</li></ul>
+    <p>The extension does not synchronize this information to a cloud service. Header Sprout does not encrypt its local storage and should not be used as a password vault.</p>
+  </section>
+
+  <section aria-labelledby="used">
+    <h2 id="used">How your rules are used</h2>
+    <p>When you save and enable a request-header rule, your browser sends the configured header value to websites whose request URLs match your rule. If you enter an authentication token, those matching websites receive that token. Choose URL patterns carefully.</p>
+    <p>Response-header rules change headers received by your browser. These modifications provide the development and debugging features you configure. They do not send data to the extension’s publisher.</p>
+    <p>Header Sprout uses the browser’s declarative network rules. It does not record request bodies, response bodies, browsing history, or traffic logs. Browser-internal and protected pages cannot be modified.</p>
+  </section>
+
+  <section aria-labelledby="permissions">
+    <h2 id="permissions">Why website access is needed</h2>
+    <p>HTTP and HTTPS website access allows Header Sprout to modify headers on the URL patterns you choose, including development servers and localhost. The storage permission saves your configuration on your device. No active header rules are included by default.</p>
+  </section>
+
+  <section aria-labelledby="exports">
+    <h2 id="exports">Imports and exports</h2>
+    <p>Exported JSON files contain your saved profiles and header values, including any credentials you entered. These files remain on your device unless you choose to share them. Review exports before sharing or committing them to a repository.</p>
+    <p>Importing a configuration stages it in a paused state for review. Save the imported configuration and resume it when ready.</p>
+  </section>
+
+  <section aria-labelledby="control">
+    <h2 id="control">Retention and your controls</h2>
+    <p>Saved settings remain until you change or remove them, clear the extension’s data, or uninstall it. You can delete individual rules and profiles and save the changes. The power button pauses all saved rules immediately.</p>
+    <p>Uninstalling the extension removes its local extension storage. Exported files are separate and must be deleted separately. A standalone design preview, if used, stores its settings in that preview site’s local storage; clearing that site’s data removes them.</p>
+  </section>
+
+  <section aria-labelledby="limited">
+    <h2 id="limited">Limited use</h2>
+    <p>Header Sprout uses data only to provide its user-configured header-editing features. It does not sell user data, use it for advertising, transfer it for unrelated purposes, or use it for creditworthiness or lending decisions.</p>
+    <p>Header Sprout’s use of information received from browser APIs adheres to the Chrome Web Store User Data Policy, including its Limited Use requirements.</p>
+  </section>
+
+  <section aria-labelledby="page">
+    <h2 id="page">This privacy page</h2>
+    <p>This page contains no analytics scripts, tracking cookies, forms, or external fonts. The hosting provider may process ordinary web-server request information to deliver the page. That is separate from the extension’s local settings and header rules.</p>
+  </section>
+
+  <section aria-labelledby="changes">
+    <h2 id="changes">Changes and questions</h2>
+    <p>If the extension’s data handling changes, this policy will be updated. The date above identifies the current version. For questions, use the developer contact information provided on Header Sprout’s browser-store listing.</p>
+  </section>
+</main>
+<footer><div class="wrap">Header Sprout · A little help for your headers.</div></footer>
+</body>
+</html>

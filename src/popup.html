@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Header Sprout</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="popup.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <div class="brand">
+          <img src="mascot.svg" alt="" width="45" height="48" />
+          <div>
+            <h1>header sprout<span>✦</span></h1>
+            <p>A little help for your headers.</p>
+          </div>
+        </div>
+        <button
+          id="power"
+          class="power"
+          aria-label="Pause all rules"
+          title="Pause all rules"
+        >
+          ⏻
+        </button>
+      </header>
+      <div id="preview" hidden>
+        Design preview · no network requests are modified
+      </div>
+      <section class="workspace">
+        <div id="site-access" hidden>
+          <p>Allow website access so your saved headers can be applied.</p>
+          <button id="grant-access" class="primary">
+            Allow website access
+          </button>
+        </div>
+        <div class="profilebar">
+          <label for="profiles">Your workspace</label
+          ><span id="status" class="status">Ready</span>
+        </div>
+        <div class="profile-controls">
+          <select id="profiles" aria-label="Active profile"></select
+          ><button
+            id="rename"
+            class="icon"
+            title="Rename profile"
+            aria-label="Rename profile"
+          >
+            ✎</button
+          ><button
+            id="add-profile"
+            class="icon"
+            title="New profile"
+            aria-label="New profile"
+          >
+            ＋</button
+          ><button
+            id="delete-profile"
+            class="icon"
+            title="Delete profile"
+            aria-label="Delete profile"
+          >
+            −
+          </button>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Header direction">
+          <button
+            class="tab selected"
+            id="request-tab"
+            role="tab"
+            aria-selected="true"
+            aria-controls="rules-panel"
+          >
+            ↗ Request <span id="request-count">0</span></button
+          ><button
+            class="tab"
+            id="response-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="rules-panel"
+          >
+            ↙ Response <span id="response-count">0</span>
+          </button>
+        </div>
+        <div class="section-heading">
+          <div>
+            <h2 id="section-title">Request headers</h2>
+            <p id="section-copy">A small tweak on the way out.</p>
+          </div>
+          <button id="add-rule" class="add">＋ Add header</button>
+        </div>
+        <section id="rules-panel" role="tabpanel" aria-labelledby="request-tab">
+          <div id="rules"></div>
+        </section>
+        <div class="hint">
+          <span aria-hidden="true">✧</span>
+          <p>
+            Only matching URLs get a little sprout.<br /><span
+              >Use <code>*</code> for any characters. First rule wins
+              conflicts.</span
+            >
+          </p>
+        </div>
+      </section>
+      <footer>
+        <div class="savebar">
+          <p id="save-status" role="status" aria-live="polite">
+            All changes saved
+          </p>
+          <button id="save" class="primary" disabled>Save changes</button>
+        </div>
+        <div class="footerline">
+          <span>Made for curious developers.</span>
+          <div>
+            <button id="import">Import</button
+            ><button id="export">Export</button
+            ><button id="help" aria-label="Help">?</button>
+          </div>
+        </div>
+      </footer>
+      <div id="error" role="alert" hidden></div>
+      <input
+        id="import-file"
+        type="file"
+        accept="application/json,.json"
+        hidden
+      />
+      <dialog id="profile-dialog">
+        <form method="dialog" id="profile-form">
+          <h2 id="dialog-title">New profile</h2>
+          <label for="profile-name">Profile name</label
+          ><input
+            id="profile-name"
+            maxlength="60"
+            required
+            autocomplete="off"
+          />
+          <div class="dialog-actions">
+            <button type="button" id="cancel-dialog">Cancel</button
+            ><button class="primary">Save profile</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="help-dialog">
+        <h2>A tiny field guide</h2>
+        <p>
+          <b>Set</b> adds a header or replaces its value. <b>Remove</b> strips
+          it. Request headers go to the server; response headers come back.
+        </p>
+        <p>
+          Patterns match the entire URL and are case-sensitive. Try
+          <code>https://example.com/*</code>, <code>http://localhost:*/*</code>,
+          or <code>*://*/*</code> for all HTTP(S) URLs.
+        </p>
+        <p>
+          Save changes to activate your selected profile and edits, then reload
+          the target page. Browser-internal pages cannot be modified.
+        </p>
+        <p>
+          Rules stay on this device. Exports include header values, including
+          any tokens you entered. Store and share them carefully.
+        </p>
+        <p>Made for curious developers.</p>
+        <button id="close-help" class="primary">Got it</button>
+      </dialog>
+    </main>
+  </body>
+</html>
